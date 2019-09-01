@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import * as Yup from 'yup';
 import { Form, Input } from '@rocketseat/unform';
 import { MdAddCircleOutline, MdSync } from 'react-icons/md';
@@ -54,12 +55,17 @@ export default function Manage({ location }) {
           <Input
             name="description"
             multiline
-            maxlength="255"
+            maxLength="255"
             type="text"
             placeholder="Descrição completa"
           />
           <DatePicker name="date" placeholder="Data do Meetup" />
-          <Input name="location" type="text" placeholder="Localização" />
+          <Input
+            name="location"
+            type="text"
+            placeholder="Localização"
+            maxLength="255"
+          />
           <button type="submit">
             <div>
               <MdAddCircleOutline size={20} color="#fff" />
@@ -71,3 +77,7 @@ export default function Manage({ location }) {
     </Container>
   );
 }
+
+Manage.propTypes = {
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+};

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Wrapper, Content } from './styles';
 
 export default function AuthLayout({ children }) {
@@ -8,3 +9,7 @@ export default function AuthLayout({ children }) {
     </Wrapper>
   );
 }
+
+AuthLayout.propTypes = {
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
+};

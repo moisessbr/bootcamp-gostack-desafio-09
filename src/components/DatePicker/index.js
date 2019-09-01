@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import ReactDatePicker from 'react-datepicker';
 import pt from 'date-fns/locale/pt';
 import { useField } from '@rocketseat/unform';
@@ -39,3 +40,8 @@ export default function DatePicker({ name, placeholder }) {
     </>
   );
 }
+
+DatePicker.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+};

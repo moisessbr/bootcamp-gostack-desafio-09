@@ -25,14 +25,14 @@ export default function Details({ location }) {
   }
   // Receive 'meetup' from Details and send to edit.
   function handleEdit(meetup) {
-    const { time, id, date, title, description, location, banner_id } = meetup;
+    const { time, id, date, title, description, banner_id } = meetup;
     const parsedMeetup = {
       time,
       id,
       date: parseISO(date),
       title,
       description,
-      location,
+      location: meetup.location,
       banner: banner_id,
     };
     history.push({
@@ -93,6 +93,5 @@ export default function Details({ location }) {
 }
 
 Details.propTypes = {
-  location: PropTypes.objectOf.isRequired,
-  meetup: PropTypes.arrayOf.isRequired,
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.func]).isRequired,
 };
